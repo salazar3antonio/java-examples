@@ -1,0 +1,12 @@
+
+
+<!--update the version number of guice dependency in pom.xml file-->
+<!--make sure to refresh maven changes (CTRL + SHIFT + O)-->
+<!--or click on the icon that pops up in the upper right-hand corner-->
+<!--then Run All Tests. Not all will pass, but most will, you'll need to complete the todos in order for all tests to pass-->
+
+<dependency>
+    <groupId>com.google.inject</groupId>
+    <artifactId>guice</artifactId>
+    <version>5.1.0</version>
+</dependency>

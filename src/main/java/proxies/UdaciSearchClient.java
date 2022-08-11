@@ -7,7 +7,7 @@ import java.time.ZoneId;
 public interface UdaciSearchClient {
     @Tracker
     int getNumEmployees();
-    
+
     String getName();
     long getId();
     int getQuarterlyBudget();
