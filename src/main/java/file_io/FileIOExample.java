@@ -1,12 +1,11 @@
 package file_io;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileIOExample {
 
@@ -30,13 +29,21 @@ public class FileIOExample {
 
         // if file exists, read from the file and print out the result
         if (textFile.exists()) {
-            try (Reader buffReader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+            try (Reader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
                 char[] data = new char[10];
-                System.out.println("Reading: ");
-                while (buffReader.read(data) != -1) {
+                System.out.println("Reading with Reader: ");
+                while (reader.read(data) != -1) {
                     System.out.println(data);
                 }
             }
+        }
+
+        Path pathToSampleText = Path.of("src/main/java/file_io/sampleText.txt");
+        try (BufferedReader buffReader = Files.newBufferedReader(pathToSampleText, StandardCharsets.UTF_8)) {
+            System.out.println("Reading with BufferedReader: ");
+            String singleLine = buffReader.readLine();
+            // TODO: How can we read all of the lines in the file?
+            System.out.println(singleLine);
         }
     }
 }
