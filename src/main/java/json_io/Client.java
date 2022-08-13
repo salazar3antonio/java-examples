@@ -1,7 +1,5 @@
 package json_io;
 
-import java.time.ZoneId;
-
 public final class Client {
     private String name = "";
     private long id = 0;
