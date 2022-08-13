@@ -52,7 +52,9 @@ public final class UdaciSearchClientFactory {
                 throw new RuntimeException("No property named \"" + propertyName + "\" found in map.");
             }
 
-            // TODO: add check for Tracker method annotation
+            if (method.isAnnotationPresent(Tracker.class)) {
+                System.out.println(propertyName + "_tracking");
+            }
 
             return properties.get(propertyName);
         }
