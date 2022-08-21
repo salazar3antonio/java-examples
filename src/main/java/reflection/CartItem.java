@@ -1,5 +1,6 @@
-package annotations;
+package reflection;
 
+import annotations.CustomAnnotation;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.jetbrains.annotations.NotNull;
 
