@@ -6,8 +6,12 @@ public class ScannerExample {
 
     public static void main(String[] args) {
 
+        standardSwitchWithScanner(args);
+//        enhancedSwitchWithScanner(args);
+    }
+
+    public static void standardSwitchWithScanner(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // TODO: 7/31/2022 does this need to catch an exception?
         System.out.println("Welcome to the main menu!");
         try {
             while (scanner.hasNext()) {
@@ -22,13 +26,8 @@ public class ScannerExample {
                     case "3":
                         System.out.println("Three");
                         break;
-                    case "4": {
-                        System.out.println("See you later!");
-                        break;
-                    }
                     default:
                         System.out.println("Please enter only number 1-3");
-                        // TODO: 7/31/2022 Need some way to go back to the main menu
                         main(args);
                         break;
                 }
@@ -37,4 +36,26 @@ public class ScannerExample {
             throw new RuntimeException(e);
         }
     }
+
+    public static void enhancedSwitchWithScanner(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the main menu!");
+        try {
+            while (scanner.hasNext()) {
+                String userInput = scanner.next();
+                switch (userInput) {
+                    case "1" -> System.out.println("One");
+                    case "2" -> System.out.println("Two");
+                    case "3" -> System.out.println("Three");
+                    default -> {
+                        System.out.println("Please enter only number 1-3");
+                        main(args);
+                    }
+                }
+            }
+        } catch (IllegalStateException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
