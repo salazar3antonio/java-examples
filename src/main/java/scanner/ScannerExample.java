@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class ScannerExample {
 
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        standardSwitchWithScanner(args);
-//        enhancedSwitchWithScanner(args);
+//        standardSwitchWithScanner(args);
+        enhancedSwitchWithScanner(args);
     }
 
     public static void standardSwitchWithScanner(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the main menu!");
         try {
             while (scanner.hasNext()) {
@@ -24,7 +25,8 @@ public class ScannerExample {
                         System.out.println("Two");
                         break;
                     case "3":
-                        System.out.println("Three");
+                        System.out.println("See you later!");
+                        scanner.close();
                         break;
                     default:
                         System.out.println("Please enter only number 1-3");
@@ -32,13 +34,12 @@ public class ScannerExample {
                         break;
                 }
             }
-        } catch (IllegalStateException e) {
-            throw new RuntimeException(e);
+        } catch (Exception exception) {
+            exception.getLocalizedMessage();
         }
     }
 
     public static void enhancedSwitchWithScanner(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the main menu!");
         try {
             while (scanner.hasNext()) {
@@ -46,15 +47,18 @@ public class ScannerExample {
                 switch (userInput) {
                     case "1" -> System.out.println("One");
                     case "2" -> System.out.println("Two");
-                    case "3" -> System.out.println("Three");
+                    case "3" -> {
+                        System.out.println("See you later!");
+                        scanner.close();
+                    }
                     default -> {
                         System.out.println("Please enter only number 1-3");
                         main(args);
                     }
                 }
             }
-        } catch (IllegalStateException e) {
-            throw new RuntimeException(e);
+        } catch (Exception exception) {
+            exception.getLocalizedMessage();
         }
     }
 

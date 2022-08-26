@@ -11,7 +11,7 @@ public class RegExExample {
         String emailRegex = "^(.+)@(.+).(.+)$";
         Pattern emailPattern = Pattern.compile(emailRegex);
         Matcher emailMatcher = emailPattern.matcher(myEmail);
-        
+
         System.out.println(emailMatcher.matches());
 
         System.out.println(isEmailValidRegEx(myEmail, emailPattern));
