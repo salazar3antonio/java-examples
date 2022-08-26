@@ -9,9 +9,9 @@ public class Main {
 
     public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        printAllIntMethods();
-        printStringDeprecatedMethods();
-        invokeContainsMethodOnString();
+//        printAllIntMethods();
+//        printStringDeprecatedMethods();
+//        invokeContainsMethodOnString();
 
     }
 

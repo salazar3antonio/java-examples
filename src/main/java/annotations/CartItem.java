@@ -20,11 +20,14 @@ public class CartItem {
         this.cost = cost;
     }
 
-    public boolean equals(CartItem other) {
-        if (this == other) {
-            return true;
-        }
-        return this.id == other.id && this.name.equals(other.name) && this.cost == other.cost;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CartItem cartItem)) return false;
+
+        if (id != cartItem.id) return false;
+        if (Double.compare(cartItem.cost, cost) != 0) return false;
+        return name.equals(cartItem.name);
     }
 
     @Override // Method declaration is intended to override a method declaration in a supertype
