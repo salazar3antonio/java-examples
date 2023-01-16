@@ -1,6 +1,5 @@
 package regex;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegExExample {
@@ -10,9 +9,6 @@ public class RegExExample {
         String myEmail = "johndoe@email.com";
         String emailRegex = "^(.+)@(.+).(.+)$";
         Pattern emailPattern = Pattern.compile(emailRegex);
-        Matcher emailMatcher = emailPattern.matcher(myEmail);
-
-        System.out.println(emailMatcher.matches());
 
         System.out.println(isEmailValidRegEx(myEmail, emailPattern));
 

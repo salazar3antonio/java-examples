@@ -22,12 +22,13 @@ public class StreamAPIExample {
 
         System.out.println("Unfiltered & unsorted words list " + foodBlogWords);
 
-        // Stream with functional interfaces individually declared.
+//        // Stream with functional interfaces individually declared.
         longSyntaxStream(foodBlogWords);
 
-        // Stream with lambdas used to make Stream more concise.
+//        // Stream with lambdas used to make Stream more concise.
         shortSyntaxStream(foodBlogWords);
 
+        printEvenNumsWithStream();
 
     }
 
@@ -66,6 +67,18 @@ public class StreamAPIExample {
 
         // Words in natural order that were found more than 100 times
         System.out.println("Filtered & sorted words list " + allWordsSorted);
+    }
+
+    private static void printEvenNumsWithStream() {
+
+        List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> filteredList = list.stream()
+                .filter( num -> num % 2 == 0)
+                .collect(Collectors.toList());
+
+        System.out.print(filteredList);
+
     }
 
 
