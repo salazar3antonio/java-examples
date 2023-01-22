@@ -19,10 +19,10 @@ public class FileIOExample {
         // if the file exists, write a string to the file
         if (textFile.exists()) {
             // write to the file
-            try (Writer buffWriter = Files.newBufferedWriter(path)) {
+            try (Writer writer = Files.newBufferedWriter(path)) {
                 System.out.println("Writing: " + path.toAbsolutePath());
                 String textToWrite = "Hey there!";
-                buffWriter.write(textToWrite);
+                writer.write(textToWrite);
             }
         }
 
