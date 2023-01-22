@@ -10,6 +10,7 @@ public class LambdaExample {
         BiFunction<String, String, String> addMyWords = (String firstWord, String secondWord) -> firstWord + " " + secondWord;
 
         // BiFunction.apply(obj, obj) is the functional method of BiFunction
+        System.out.println(addMyWords.apply("Hello", "World!"));
 
     }
 
