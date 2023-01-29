@@ -26,9 +26,9 @@ public class StreamAPIExample {
         longSyntaxStream(foodBlogWords);
 
 //        // Stream with lambdas used to make Stream more concise.
-        shortSyntaxStream(foodBlogWords);
+//        shortSyntaxStream(foodBlogWords);
 
-        printEvenNumsWithStream();
+//        printEvenNumsWithStream();
 
     }
 
@@ -73,8 +73,9 @@ public class StreamAPIExample {
 
         List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        List<Integer> filteredList = list.stream()
-                .filter( num -> num % 2 == 0)
+        List<Integer> filteredList = list
+                .stream()
+                .filter( num -> num % 2 == 0 )
                 .collect(Collectors.toList());
 
         System.out.print(filteredList);

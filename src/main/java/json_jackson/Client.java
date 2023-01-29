@@ -1,4 +1,4 @@
-package json_io;
+package json_jackson;
 
 public final class Client {
     private String name = "";

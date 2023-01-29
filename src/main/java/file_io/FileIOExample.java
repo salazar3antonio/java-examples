@@ -41,7 +41,6 @@ public class FileIOExample {
         try (BufferedReader buffReader = Files.newBufferedReader(pathToSampleText, StandardCharsets.UTF_8)) {
             System.out.println("Reading with BufferedReader: ");
             String singleLine = buffReader.readLine();
-            // TODO: How can we read all of the lines in the file?
             System.out.println(singleLine);
         }
     }

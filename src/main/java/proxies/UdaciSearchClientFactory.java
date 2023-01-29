@@ -11,12 +11,12 @@ import java.util.Objects;
 public final class UdaciSearchClientFactory {
 
     public static UdaciSearchClient fromPropertyMap(Map<String, Object> properties) {
-        Object proxy =
+        Object dynamicProxy =
                 Proxy.newProxyInstance(
                         UdaciSearchClientFactory.class.getClassLoader(),
                         new Class<?>[]{UdaciSearchClient.class},
                         new Handler(properties));
-        return (UdaciSearchClient) proxy;
+        return (UdaciSearchClient) dynamicProxy;
     }
 
     private UdaciSearchClientFactory() {
@@ -44,9 +44,11 @@ public final class UdaciSearchClientFactory {
                     throw new RuntimeException(e);
                 }
             }
+
             if (methodName.length() <= 3 || !methodName.startsWith("get")) {
                 throw new RuntimeException("Method is not a property getter: " + methodName);
             }
+
             String propertyName = methodName.substring(3, 4).toLowerCase() + methodName.substring(4);
             if (!properties.containsKey(propertyName)) {
                 throw new RuntimeException("No property named \"" + propertyName + "\" found in map.");
