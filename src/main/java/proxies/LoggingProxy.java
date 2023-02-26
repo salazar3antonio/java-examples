@@ -11,13 +11,14 @@ public final class LoggingProxy {
 
         Set<String> targetSet = new HashSet<>();
 
-        Object proxy = Proxy.newProxyInstance(
+        Object dynamicProxy = Proxy.newProxyInstance(
                 LoggingProxy.class.getClassLoader(),
                 new Class[]{Set.class},
                 new LoggingInvocationHandler(targetSet));
 
-        Set<String> loggedSet = (Set<String>) proxy;
+        Set<String> loggedSet = (Set<String>) dynamicProxy;
         loggedSet.add("item");
+        loggedSet.remove("item");
 
         System.out.println(targetSet.contains("item"));
     }
