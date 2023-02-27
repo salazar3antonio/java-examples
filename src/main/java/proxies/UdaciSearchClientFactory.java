@@ -1,12 +1,19 @@
 package proxies;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
+import java.io.*;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.nio.file.Path;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 
 public final class UdaciSearchClientFactory {
 
@@ -55,7 +62,19 @@ public final class UdaciSearchClientFactory {
             }
 
             if (method.isAnnotationPresent(Tracker.class)) {
-                System.out.println(propertyName + "_tracking");
+                System.out.println(propertyName + "_tracking" + " propertyValue: " + properties.get(propertyName) );
+
+                Path path = Path.of("src/main/java/proxies/logging.txt");
+                File profileFile = new File(path.toUri());
+                FileWriter fileWriter = new FileWriter(profileFile, true);
+
+                try (BufferedWriter writer = new BufferedWriter(fileWriter)) {
+                    writer.write(System.lineSeparator());
+                    writer.write("Run at " + Calendar.getInstance().getTime() + ": ");
+                    writer.write(propertyName + ": " + properties.get(propertyName));
+                    writer.write(System.lineSeparator());
+                }
+
             }
 
             return properties.get(propertyName);
